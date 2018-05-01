@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <p>X: <span>0</span></p>    
+    <p>O: <span>0</span></p>
+    
+    <p>Your Turn: <span id="turn">X</span></p>
+    
+    <p>Choose the size of your board:</p>
+    
+    <input type="number" id="boardSize" value="3" min="3" max="15">
+    <span> by </span> <span id="grid">3</span>
+    
+    <br>
+    <button id="inputSize">Start!</button>
+    
+    <div class="board"></div>
+</body>
+<script src="script.js"></script>
+</html>
