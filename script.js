@@ -87,7 +87,7 @@ function gameStart() {
 
 	//creates the winning combination for anti-diagonals
 	for (let a = boardSize.value - 1; a >= 0; a--) {
-		hash.push(winningCombos[a][a]);
+		hash.push(winningCombos[a][(boardSize.value - 1) - a]);
 		if (hash.length == boardSize.value) {
 			winningCombos.push(hash);
 			hash = [];
