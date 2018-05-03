@@ -7,20 +7,38 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <p>X: <span>0</span></p>    
-    <p>O: <span>0</span></p>
+    <div class="wrapper">
+      <h1>Tic Tac Toe</h1>
     
-    <p>Your Turn: <span id="turn">X</span></p>
+      <span class="x">
+        <p>X:
+          <span id="scoreX">0</span>
+        </p>
+      </span>
     
-    <p>Choose the size of your board:</p>
+      <span class="o">
+        <p>O:
+          <span id="scoreO">0</span>
+        </p>
+      </span>
     
-    <input type="number" id="boardSize" value="3" min="3" max="15">
-    <span> by </span> <span id="grid">3</span>
+      <p class="turns">Your Turn: </p>
+      <span id="turn">
+        <p>X </p>
+      </span>
     
-    <br>
-    <button id="inputSize">Start!</button>
+      <p class="text">Choose the size of your board:</p>
     
-    <div class="board"></div>
+      <p class="ui">
+        <input type="number" id="boardSize" value="3" min="3" max="15">
+        <span> by </span>
+        <span id="grid">3</span>
+      </p>
+    
+      <button id="inputSize">Start!</button>
+    
+      <div class="board"></div>
+    </div>
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
