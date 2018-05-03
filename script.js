@@ -3,8 +3,10 @@
 	const grid = document.getElementById("grid");
 	const board = document.querySelector(".board");
 	const turn = document.getElementById("turn");
-	const scoreX = document.getElementById("scoreX");
-	const scoreO = document.getElementById("scoreO");
+	let scoreX = document.getElementById("scoreX");
+	let scoreO = document.getElementById("scoreO");
+	let xWon = 0;
+	let oWon = 0;
 
 	//these variables will have an array with the IDs of the items that have been played and that info will be used with the formula to determine the winner
 	let playerX = [];
@@ -16,9 +18,6 @@
 	let winningCombos = [];
 	let hash = [];
 
-/*each cell has an index number in the winningCombos table, the number of indexes will change depending on the board's size, the indexes will be summed and stored in "pointsNeeded". The functions at the bottom will compare if the needed score has been reached*/
-
-let pointsNeeded = 0;
 	//*********** Event Listeners **********
 
 	boardSize.addEventListener("change", function() {
@@ -31,7 +30,6 @@ let pointsNeeded = 0;
 
 	function gameStart () {
 		if(boardSize.value < 3 || boardSize.value > 15) return;
-		pointsNeeded = 0;
 //counter will keep track of the incremental ID value for each DIV
 		let counter = 1;
 		winningCombos = [];
@@ -54,11 +52,9 @@ let pointsNeeded = 0;
 				cell.id = (counter++);
 				board.appendChild(cell);
 		}
-			pointsNeeded += (i - 1);
 //this makes the parent DIV just big enough to hold an specific amount of cells and force the rest to wrap on a different line
 		board.style.width = 55 * boardSize.value + "px";
 		}
-		console.log(pointsNeeded);
 		
 		const blocks = document.querySelectorAll(".boardCell");
 		
@@ -101,7 +97,6 @@ let pointsNeeded = 0;
 					hash = [];
 			}
 		}
-	console.log(winningCombos);
 }
 	
 let symbolsToggle = "X";
@@ -110,20 +105,48 @@ function handleClick () {
 	if(symbolsToggle == "X"){
 		turn.innerHTML = "O";
 		this.innerHTML = symbolsToggle;
-		playerX.push(this.id);
+		playerX.push(Number(this.id));
 		this.removeEventListener("click", handleClick);
 		symbolsToggle = "O";
-		console.log(playerX);
+		checkX();
 	} else {
 		turn.innerHTML = "X";
 		this.innerHTML = symbolsToggle;
-		playerO.push(this.id);
+		playerO.push(Number(this.id));
 		this.removeEventListener("click", handleClick);
 		symbolsToggle = "X";
-		console.log(playerO);
+		checkO();
 	}
 }
 
-function checkWinner () {
-  
+function checkX () {
+	if(playerX.length + playerO.length == cellsAvailable){
+		alert("It's a draw ya'll!")
+		gameStart();
+	}
+	
+	for(let [index, win] of winningCombos.entries()){
+		if(win.every(elem => playerX.indexOf(elem) > -1)){
+			xWon++;
+			alert("X WON!");
+			gameStart();
+			scoreX.innerHTML = xWon;
+		}
+	}
+}
+
+function checkO () {
+	if(playerX.length + playerO.length == cellsAvailable){
+		alert("It's a draw ya'll!")
+		gameStart();
+	}
+	
+	for(let [index, win] of winningCombos.entries()){
+		if(win.every(elem => playerO.indexOf(elem) > -1)){
+			oWon++;
+			alert("O WON!");
+			gameStart();
+			scoreO.innerHTML = oWon;
+		}
+	}
 }
