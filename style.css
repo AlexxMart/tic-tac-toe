@@ -1,7 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Istok+Web:700|Lora');
+
+body {
+	background: #e8e8e8;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 200px 1fr;
+	grid-template-rows: 70px 50px 30px 50px 40px 1fr;
+	grid-gap: 12px;	
+}
+
+.wrapper h1 {
+	font-family: 'Istok Web', sans-serif;
+	grid-column-start: span 3;
+	text-align: center;
+}
+
+.wrapper .x{
+	font-family: 'Lora', serif;
+	font-size: 30px;
+	text-align: right;
+}
+
+.wrapper .o{
+	font-family: 'Lora', serif;
+	font-size: 30px;
+	grid-column-start: 3;
+}
+
+.wrapper .turns {
+	font-family: 'Istok Web', sans-serif;
+	grid-column-start: span 3;
+	text-align: center;
+	align-self: center;
+}
+
+.wrapper #turn {
+	grid-column: span 3;
+	place-self: center;
+	background: white;
+	border: 1px solid #4d2722;
+	border-radius: 4px;
+	height: 70px;
+	width: 70px;
+}
+
+.wrapper #turn p {
+	font-family: 'Lora', serif;
+	font-size: 30px;
+	text-align: center;
+	margin: 0;
+	position: relative;
+	top: 20%;
+}
+
+.wrapper .text {
+	font-family: 'Lora', serif;
+	text-align: right;
+}
+
+.ui {
+	font-family: 'Lora', serif;
+	text-align: center;
+}
+
+.ui input {
+	place-self: center;
+	text-align: center;
+	width: 60px;
+}
+
+.wrapper button {
+	font-family: 'Lora', serif;
+	background: #272b36;
+	color: #e8e8e8;
+	width: 100px;
+	border: none;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.wrapper button:hover {
+	color: #272b36;
+	background: #ffeb3b;
+	box-shadow: 0px 0px 5px #232323;
+	border: none;
+	transition: 0.3s;
+}
+
+.border {
+	border: 10px solid #6c442c;
+}
+
+.board {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	place-self: center;
+	grid-column: span 3;
+	background: #4d2722;
+	border-radius: 3px;
+	transition: 3s:
+}
+
 .boardCell {
+	font-family: 'Lora', serif;
 	width: 50px;
 	height: 50px;
-	border: 2px solid tomato;
+	text-align: center;
+	background: #f7f7f7;
+	border: 1px solid #4d2722;
+	border-radius: 4px;
 	float: left;
 	cursor: pointer;
+}
+
+.wrapper .used {
+	cursor: not-allowed;
+	background: #e8e8e8;
 }
